@@ -1,23 +1,45 @@
-site_name: Livro de Receitas Vegan
-
+site_name: 🌿 Livro de Receitas Vegan
 theme:
   name: material
   language: pt
+  palette:
+    - scheme: default
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/weather-night
+        name: Modo escuro
+    - scheme: slate
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+  font:
+    text: Lato
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - content.tooltips
+  icon:
+    logo: material/leaf
 
 plugins:
   - search
 
 nav:
   - Início: index.md
-
   - Pratos Principais:
-      - Chow Mein: pratos-principais/chow-mein.md
-      - Salada de Falafel no Forno: pratos-principais/salada-de-falafel-no-forno.md
-      - Shawarma de Cogumelos: pratos-principais/shawarma-de-cogumelos.md
-      - Barcos de Curgete Pizza: pratos-principais/barcos-de-curgete-pizza.md
-      - Massa com Pimento Vermelho Assado: pratos-principais/massa-com-pimento-vermelho-assado.md
-      - Caril Massaman: pratos-principais/caril-massaman.md
-      - Bifes de Couve-flor Panados: pratos-principais/bifes-de-couve-flor-panados.md
-      - Ramen de Legumes: pratos-principais/ramen-de-legumes.md
-
+    - Chow Mein: pratos-principais/chow-mein.md
+    - Ramen de Legumes: pratos-principais/ramen-de-legumes.md
+    - Salada de Falafel no Forno: pratos-principais/salada-de-falafel-no-forno.md
+    - Bifes de Couve-flor Panados: pratos-principais/bifes-de-couve-flor-panados.md
+    - Shawarma de Cogumelos: pratos-principais/shawarma-de-cogumelos.md
+    - Caril Massaman: pratos-principais/caril-massaman.md
+    - Barcos de Curgete Pizza: pratos-principais/barcos-de-curgete-pizza.md
+    - Massa com Pimento Vermelho Assado: pratos-principais/massa-com-pimento-vermelho-assado.md
   - Sobre: sobre.md
+extra_css:
+  - stylesheets/extra.css

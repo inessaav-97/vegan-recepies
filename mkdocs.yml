@@ -1,0 +1,17 @@
+site_name: Livro de Receitas Vegan
+
+theme:
+  name: material
+  language: pt
+
+plugins:
+  - search
+
+nav:
+  - Início: index.md
+  - Pequeno-almoço:
+  - Pratos Principais:
+  - Sopas:
+  - Sobremesas:
+  - Snacks:
+  - Molhos:

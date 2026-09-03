@@ -1,6 +1,6 @@
 # Salada de Falafel no Forno com Molho de Tahini e Hortelã
 
-../imagens/baked-falafel-salad.jpg
+![Salada de Falafel no Forno com Molho de Tahini e Hortelã](../imagens/baked-falafel-salad.jpg)
 
 ## Informação
 

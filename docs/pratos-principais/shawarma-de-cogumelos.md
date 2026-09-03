@@ -1,6 +1,6 @@
 # Shawarma de Cogumelos
 
-../imagens/mushroom-shawarma.jpg
+![Shawarma de Cogumelos](../imagens/mushroom-shawarma.jpg)
 
 ## Informação
 

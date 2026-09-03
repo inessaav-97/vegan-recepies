@@ -1,6 +1,6 @@
 # Chow Mein
 
-../imagens/chow-mein.jpg
+![Chow Mein](../imagens/chow-mein.jpg)
 
 
 ## Informação

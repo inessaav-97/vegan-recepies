@@ -1,7 +1,6 @@
 # Caril Massaman
 
-../imagens/massaman-curry.jpg
-
+![Caril Massaman](../imagens/massaman-curry.jpg)
 
 ## Informação
 

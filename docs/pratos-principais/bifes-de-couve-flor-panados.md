@@ -1,6 +1,6 @@
 # Bifes de Couve-flor Panados
 
-../imagens/cauliflower-steaks-recipe.jpg
+![Bifes de Couve-flor Panados](../imagens/cauliflower-steaks-recipe.jpg)
 
 
 ## Informação

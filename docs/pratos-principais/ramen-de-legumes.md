@@ -1,6 +1,6 @@
 # Ramen de Legumes
 
-../imagens/veggie-ramen-recipe.jpg
+![Ramen de Legumes](../imagens/veggie-ramen-recipe.jpg)
 
 ## Informação
 

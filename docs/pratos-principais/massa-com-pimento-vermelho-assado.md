@@ -1,6 +1,6 @@
 # Massa com Pimento Vermelho Assado e Legumes
 
-../imagens/roasted-red-pepper-and-vegetable-pasta.jpg
+![Massa com Pimento Vermelho Assado e Legumes](../imagens/roasted-red-pepper-and-vegetable-pasta.jpg)
 
 
 ## Informação

@@ -21,20 +21,24 @@ async function searchIngredients() {
   try {
     const response = await fetch('../search/search_index.json');
     const data = await response.json();
-    const seen = new Set();
-    const results = [];
 
+    // Group all sections by base page location
+    const pages = {};
     for (const doc of data.docs) {
       const loc = doc.location.split('#')[0];
-      if (seen.has(loc)) continue;
       if (!loc.match(/pratos-principais|sopas|sobremesas/)) continue;
 
-      const text = (doc.title + ' ' + doc.text).toLowerCase();
-      if (ingredients.every(ing => matchesIngredient(text, ing))) {
-        seen.add(loc);
-        results.push({ title: doc.title, href: '../' + loc });
-      }
+      if (!pages[loc]) pages[loc] = { title: '', text: '', href: '../' + loc };
+
+      // Only use title from the main page entry (no anchor)
+      if (!doc.location.includes('#')) pages[loc].title = doc.title;
+
+      pages[loc].text += ' ' + doc.title + ' ' + doc.text;
     }
+
+    const results = Object.values(pages).filter(page =>
+      ingredients.every(ing => matchesIngredient(page.text.toLowerCase(), ing))
+    );
 
     if (results.length === 0) {
       resultsDiv.innerHTML = `<p>Nenhuma receita encontrada com: <strong>${ingredients.join(', ')}</strong>.</p>`;

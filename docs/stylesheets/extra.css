@@ -12,3 +12,14 @@ article img {
 }
 
 ul li { line-height: 1.9; }
+
+/* More spacing in left nav */
+.md-nav__item {
+  padding: 4px 0;
+}
+
+.md-nav__link {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  line-height: 1.6;
+}

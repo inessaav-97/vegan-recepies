@@ -1,0 +1,25 @@
+/* Recipe card styling */
+h1 { color: #2e7d32; border-bottom: 3px solid #a5d6a7; padding-bottom: 8px; }
+h2 { color: #388e3c; }
+h3 { color: #43a047; }
+
+article img {
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  max-height: 400px;
+  object-fit: cover;
+  width: 100%;
+}
+
+ul li { line-height: 1.9; }
+
+/* More spacing in left nav */
+.md-nav__item {
+  padding: 4px 0;
+}
+
+.md-nav__link {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  line-height: 1.6;
+}

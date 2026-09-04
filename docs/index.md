@@ -1,6 +1,9 @@
 # 🌱 Livro de Receitas Vegan
 
-Bem-vindo à nossa coleção de receitas vegan.
+Este livro de receitas foi criado para organizar receitas vegan encontradas em diferentes websites, livros e outras fontes.
+
+Algumas receitas incluem um link para a fonte original.
+
 
 ## Categorias
 
@@ -9,3 +12,5 @@ Bem-vindo à nossa coleção de receitas vegan.
 - Sobremesas
 
 Utilize a pesquisa para encontrar receitas.
+
+Bom apetite 🌱

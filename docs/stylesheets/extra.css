@@ -23,3 +23,33 @@ ul li { line-height: 1.9; }
   padding-bottom: 6px;
   line-height: 1.6;
 }
+
+/* Ingredient search box */
+.ingredient-search-box {
+  display: flex;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.ingredient-search-box input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 2px solid #a5d6a7;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.ingredient-search-box input:focus {
+  border-color: #2e7d32;
+}
+
+#search-results ul {
+  margin-top: 16px;
+  padding-left: 20px;
+}
+
+#search-results li {
+  margin: 10px 0;
+  font-size: 1.05rem;
+}

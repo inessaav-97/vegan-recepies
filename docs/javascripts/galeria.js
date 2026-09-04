@@ -3,7 +3,7 @@ const RECEITAS = [
   { nome: 'Barcos de Curgete Pizza', img: 'zucchini-pizza.jpg', slug: 'barcos-de-curgete-pizza' },
   { nome: 'Bifes de Couve-flor Panados', img: 'cauliflower-steaks-recipe.jpg', slug: 'bifes-de-couve-flor-panados' },
   { nome: 'Bowl de Edamame com Arroz de Sushi', img: 'bowl-edamame-sushi.jpeg', slug: 'bowl-edamame-sushi' },
-  { nome: 'Caril Massaman', img: 'massaman-curry.jpeg', slug: 'caril-massaman' },
+  { nome: 'Caril Massaman', img: 'massaman-curry.jpg', slug: 'caril-massaman' },
   { nome: 'Chow Mein', img: 'chow-mein.jpg', slug: 'chow-mein' },
   { nome: 'Esparguete com Pesto de Tofu', img: '', slug: 'esparguete-pesto-tofu' },
   { nome: 'Feijocas com Leite de Coco e Espinafres', img: 'feijocas-leite-coco-espinafres.jpeg', slug: 'feijocas-leite-coco-espinafres' },
@@ -18,7 +18,7 @@ const RECEITAS = [
   { nome: 'Quiche de Batata com Tofu e Legumes', img: 'quiche-batata-tofu.jpeg', slug: 'quiche-batata-tofu' },
   { nome: 'Ramen de Legumes', img: 'veggie-ramen-recipe.jpg', slug: 'ramen-de-legumes' },
   { nome: 'Salada de Falafel no Forno', img: 'baked-falafel-salad.jpg', slug: 'salada-de-falafel-no-forno' },
-  { nome: 'Shawarma de Cogumelos', img: 'mushroom-shawarma.jpeg', slug: 'shawarma-de-cogumelos' },
+  { nome: 'Shawarma de Cogumelos', img: 'mushroom-shawarma.jpg', slug: 'shawarma-de-cogumelos' },
   { nome: 'Tofu com Sésamo e Brócolos', img: 'tofu-sesamo-broculos.jpeg', slug: 'tofu-sesamo-broculos' },
   { nome: 'Tofu Salteado com Legumes', img: 'chop-suey-vegan.jpeg', slug: 'tofu-salteado-legumes' },
   { nome: 'Udon Cremoso com Tofu', img: '', slug: 'udon-cremoso-tofu' },
@@ -27,10 +27,8 @@ const RECEITAS = [
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('recipe-gallery');
   if (!container) return;
-
   const grid = document.createElement('div');
   grid.className = 'recipe-gallery';
-
   RECEITAS.forEach(r => {
     const card = document.createElement('a');
     card.className = 'recipe-card';
@@ -43,6 +41,5 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     grid.appendChild(card);
   });
-
   container.appendChild(grid);
 });

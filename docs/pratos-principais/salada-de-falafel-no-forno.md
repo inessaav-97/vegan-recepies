@@ -49,21 +49,13 @@
 
 1. Pré-aqueça o forno a 180°C.
 2. Coloque metade do grão-de-bico no processador de alimentos.
-3. Adicione:
-   - a cebola;
-   - os dentes de alho;
-   - a salsa;
-   - os coentros;
-   - o sal.
-
+3. Adicione: a cebola, os dentes de alho, a salsa, os coentros e o sal.
 4. Junte o restante grão-de-bico.
 5. Triture em modo pulsar até obter uma mistura homogénea, mas ainda com alguma textura.
-
 6. Forre dois tabuleiros com papel vegetal.
 7. Com uma colher de sopa, retire porções da mistura.
 8. Forme pequenas bolas e disponha-as nos tabuleiros.
 9. Achate ligeiramente cada bola para criar o formato tradicional de falafel.
-
 10. Leve ao forno durante 35 a 40 minutos.
 11. Os falaféis devem ficar dourados por fora e macios no interior.
 12. Manuseie com cuidado após a cozedura.
@@ -78,12 +70,7 @@
 
 1. Distribua a alface pelos pratos ou taças.
 2. Adicione os falaféis.
-3. Junte as coberturas opcionais:
-   - pepino;
-   - tomate cherry;
-   - couve roxa;
-   - cenoura ralada.
-
+3. Junte as coberturas opcionais: pepino, tomate cherry, couve roxa, cenoura ralada.
 4. Regue com o molho de tahini e hortelã.
 
 ## Servir

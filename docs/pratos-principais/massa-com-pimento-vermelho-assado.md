@@ -49,29 +49,13 @@
 
 #### Tabuleiro 1
 
-Distribua:
-- os tomates cherry;
-- os pimentos vermelhos;
-- a cebola;
-- os dentes de alho inteiros.
-
-Polvilhe com:
-- os orégãos;
-- o manjericão seco;
-- uma pitada de sal (opcional).
+Distribua: os tomates cherry, os pimentos vermelhos, a cebola e os dentes de alho inteiros.
+Polvilhe com: os orégãos, o manjericão seco e uma pitada de sal (opcional).
 
 #### Tabuleiro 2
 
-Distribua:
-- a curgete;
-- a abóbora amarela;
-- os brócolos;
-- os espargos;
-- os cogumelos.
-
-Polvilhe com:
-- o alho em pó;
-- uma pitada de sal (opcional).
+Distribua: a curgete, a abóbora amarela, os brócolos, os espargos e os cogumelos.
+Polvilhe com: o alho em pó e uma pitada de sal (opcional).
 
 3. Leve ambos os tabuleiros ao forno.
 4. Coloque um na grelha superior e outro na grelha central.
@@ -83,12 +67,7 @@ Polvilhe com:
 
 1. Retire o alho assado do tabuleiro.
 2. Remova a pele dos dentes de alho.
-3. Coloque no liquidificador:
-   - os tomates assados;
-   - os pimentos assados;
-   - a cebola assada;
-   - o alho assado.
-
+3. Coloque no liquidificador: os tomates assados, os pimentos assados, a cebola assada e o alho assado.
 4. Adicione o sumo de limão.
 5. Junte um pouco de água caso pretenda um molho mais líquido.
 6. Triture até obter um molho cremoso e homogéneo.
@@ -103,14 +82,7 @@ Polvilhe com:
 
 ### Montagem
 
-1. Numa taça grande ou panela, coloque:
-   - a massa cozida;
-   - a curgete assada;
-   - a abóbora assada;
-   - os brócolos assados;
-   - os espargos assados;
-   - os cogumelos assados.
-
+1. Numa taça grande ou panela, coloque: a massa cozida, a curgete assada, a abóbora assada, os brócolos assados, os espargos assados e os cogumelos assados.
 2. Adicione o molho de tomate e pimento vermelho.
 3. Misture delicadamente até todos os ingredientes ficarem bem envolvidos.
 

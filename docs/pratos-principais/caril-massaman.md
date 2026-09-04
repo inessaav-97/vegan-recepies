@@ -65,34 +65,17 @@
 3. Cozinhe durante 5 a 8 minutos até ficarem macias e ligeiramente douradas.
 4. Junte o alho e a pasta de caril.
 5. Cozinhe durante 1 a 2 minutos, mexendo constantemente.
-
-6. Adicione:
-   - a couve-flor,
-   - o pimento,
-   - a batata-doce,
-   - o caldo de legumes,
-   - o leite de coco,
-   - a manteiga de amendoim ou amêndoa,
-   - as especiarias,
-   - o açúcar de coco.
-
+6. Adicione: a couve-flor, o pimento, a batata-doce, o caldo de legumes, o leite de coco, a manteiga de amendoim ou amêndoa,
+ as especiarias, o açúcar de coco.
 7. Misture bem todos os ingredientes.
 8. Deixe cozinhar em lume brando durante 10 a 15 minutos, até os legumes estarem tenros.
-
 9. Adicione os aminos de coco (se utilizar), o sumo de lima e o sal.
 10. Prove e ajuste os temperos conforme necessário.
 
 ## Servir
 
-1. Sirva o caril imediatamente sobre:
-   - arroz integral,
-   - quinoa,
-   - millet,
-   - ou arroz de couve-flor.
-
-2. Finalize com:
-   - manjericão tailandês ou coentros frescos;
-   - amendoins ou amêndoas torrados picados (opcional).
+1. Sirva o caril imediatamente sobre: arroz integral, quinoa, millet, ou arroz de couve-flor.
+2. Finalize com: manjericão tailandês ou coentros frescos ou amendoins ou amêndoas torrados picados (opcional).
 
 ## Fonte
 

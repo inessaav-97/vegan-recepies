@@ -61,12 +61,7 @@
 2. Adicione as chalotas, o alho, o gengibre e a cenoura.
 3. Cozinhe durante 3 a 5 minutos até as chalotas amolecerem.
 4. Se necessário, acrescente um pouco de água para evitar que os ingredientes agarrem.
-
-5. Junte:
-   - o pimento vermelho;
-   - a couve branca;
-   - as ervilhas-tortas.
-
+5. Junte: o pimento vermelho, a couve branca e as ervilhas-tortas.
 6. Cozinhe durante 4 a 6 minutos, mexendo frequentemente, até os legumes ficarem tenros.
 
 ### Finalizar

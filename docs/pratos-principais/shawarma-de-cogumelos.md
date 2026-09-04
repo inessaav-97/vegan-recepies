@@ -48,18 +48,7 @@
 
 1. Pré-aqueça o forno a 200°C.
 2. Forre um tabuleiro com papel vegetal.
-3. Numa taça grande, misture:
-   - os cogumelos;
-   - a cebola roxa;
-   - o sumo de limão;
-   - o xarope de ácer;
-   - a paprika fumada;
-   - a paprika;
-   - os cominhos;
-   - o alho em pó;
-   - a malagueta em pó;
-   - o sal (se utilizar).
-
+3. Numa taça grande, misture: os cogumelos, a cebola roxa, o sumo de limão, o xarope de ácer, a paprika fumada, os cominhos, o alho em pó, a malagueta em pó e o sal (se utilizar).
 4. Misture bem até os cogumelos ficarem uniformemente temperados.
 5. Espalhe a mistura no tabuleiro numa camada uniforme.
 6. Leve ao forno durante 20 a 25 minutos.
@@ -77,12 +66,7 @@
 
 1. Aqueça ligeiramente as tortilhas, se desejar.
 2. Distribua os cogumelos pelas tortilhas.
-3. Adicione:
-   - a alface;
-   - o tomate;
-   - o pepino;
-   - as ervas frescas.
-
+3. Adicione: a alface, o tomate, o pepino e as ervas frescas.
 4. Regue com o molho cremoso.
 
 ## Servir

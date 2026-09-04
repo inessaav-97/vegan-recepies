@@ -32,14 +32,34 @@ plugins:
 nav:
   - Início: index.md
   - Pratos Principais:
+    - Arroz Salteado Oriental com Tofu e Cajus: pratos-principais/arroz-salteado-tofu-cajus.md
+    - Barcos de Curgete Pizza: pratos-principais/barcos-de-curgete-pizza.md
+    - Bifes de Couve-flor Panados: pratos-principais/bifes-de-couve-flor-panados.md
+    - Bowl de Edamame com Arroz de Sushi: pratos-principais/bowl-edamame-sushi.md
+    - Caril Massaman: pratos-principais/caril-massaman.md
     - Chow Mein: pratos-principais/chow-mein.md
+    - Esparguete com Pesto de Tofu: pratos-principais/esparguete-pesto-tofu.md
+    - Feijocas com Leite de Coco e Espinafres: pratos-principais/feijocas-leite-coco-espinafres.md
+    - Gnocchi com Creme de Castanha e Tomates: pratos-principais/gnocchi-creme-castanha-tomates.md
+    - Gnocchi com Tomates, Lentilhas e Tofu: pratos-principais/gnocchi-tomates-lentilhas.md
+    - Lentilhas Cremosas com Espinafre: pratos-principais/lentilhas-cremosas-espinafre.md
+    - Massa com Pimento Vermelho Assado: pratos-principais/massa-com-pimento-vermelho-assado.md
+    - Massa Cremosa com Cogumelos e Miso: pratos-principais/massa-cogumelos-miso.md
+    - Nachos com Feijão Preto e Guacamole: pratos-principais/nachos-feijao-preto.md
+    - Orzo com Tomates Secos e Tofu: pratos-principais/orzo-tomates-secos-tofu.md
+    - Queques de Tofu com Tomate Seco: pratos-principais/queques-tofu-tomate-seco.md
+    - Quiche de Batata com Tofu e Legumes: pratos-principais/quiche-batata-tofu.md
     - Ramen de Legumes: pratos-principais/ramen-de-legumes.md
     - Salada de Falafel no Forno: pratos-principais/salada-de-falafel-no-forno.md
-    - Bifes de Couve-flor Panados: pratos-principais/bifes-de-couve-flor-panados.md
     - Shawarma de Cogumelos: pratos-principais/shawarma-de-cogumelos.md
-    - Caril Massaman: pratos-principais/caril-massaman.md
-    - Barcos de Curgete Pizza: pratos-principais/barcos-de-curgete-pizza.md
-    - Massa com Pimento Vermelho Assado: pratos-principais/massa-com-pimento-vermelho-assado.md
+    - Tofu com Sésamo e Brócolos: pratos-principais/tofu-sesamo-broculos.md
+    - Tofu Salteado com Legumes: pratos-principais/tofu-salteado-legumes.md
+    - Udon Cremoso com Tofu: pratos-principais/udon-cremoso-tofu.md
+  - Sopas:
+    - Sopa de Ervilhas com Croutons: sopas/sopa-ervilhas-croutons.md
+  - Sobremesas:
+    - Bolo de Banana Vegano com Chocolate: sobremesas/bolo-banana-vegano.md
   - Sobre: sobre.md
+
 extra_css:
   - stylesheets/extra.css

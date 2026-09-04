@@ -59,7 +59,11 @@ nav:
     - Sopa de Ervilhas com Croutons: sopas/sopa-ervilhas-croutons.md
   - Sobremesas:
     - Bolo de Banana Vegano com Chocolate: sobremesas/bolo-banana-vegano.md
+  - 🔍 Pesquisa por Ingredientes: pesquisar.md
   - Sobre: sobre.md
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/ingredientes.js

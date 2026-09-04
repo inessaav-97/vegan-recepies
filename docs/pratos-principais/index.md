@@ -3,9 +3,10 @@
 <div class="recipe-gallery">
 
   <a class="recipe-card" href="arroz-salteado-tofu-cajus/">
-    <img src="../imagens/arroz-salteado-tofu-cajus.jpg" alt="">
+    <img src="arroz-oriental.jpeg" alt="">
     <span>Arroz Salteado Oriental com Tofu e Cajus</span>
   </a>
+
 
   <a class="recipe-card" href="barcos-de-curgete-pizza/">
     <img src="../imagens/barcos-de-curgete-pizza.jpg" alt="">

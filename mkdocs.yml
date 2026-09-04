@@ -21,6 +21,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.top
+    - navigation.indexes
     - search.highlight
     - content.tooltips
   icon:
@@ -32,7 +33,7 @@ plugins:
 nav:
   - Início: index.md
   - Pratos Principais:
-    - Galeria: pratos-principais/index.md
+    - pratos-principais/index.md
     - Arroz Salteado Oriental com Tofu e Cajus: pratos-principais/arroz-salteado-tofu-cajus.md
     - Barcos de Curgete Pizza: pratos-principais/barcos-de-curgete-pizza.md
     - Bifes de Couve-flor Panados: pratos-principais/bifes-de-couve-flor-panados.md
@@ -69,3 +70,4 @@ extra_css:
 extra_javascript:
   - javascripts/ingredientes.js
   - javascripts/estrelas.js
+  - javascripts/galeria.js

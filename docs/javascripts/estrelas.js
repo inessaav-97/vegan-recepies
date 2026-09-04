@@ -40,7 +40,9 @@ function renderStars(container, saved) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  if (!window.location.pathname.match(/pratos-principais|sopas|sobremesas/)) return;
+  // Only run on individual recipe pages, not section indexes
+  const path = window.location.pathname;
+  if (!path.match(/\/(pratos-principais|sopas|sobremesas)\/[^/]+\//)) return;
 
   const saved = +localStorage.getItem(getKey()) || null;
   const container = document.createElement('div');

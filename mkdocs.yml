@@ -67,3 +67,4 @@ extra_css:
 
 extra_javascript:
   - javascripts/ingredientes.js
+  - javascripts/estrelas.js

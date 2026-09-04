@@ -53,3 +53,33 @@ ul li { line-height: 1.9; }
   margin: 10px 0;
   font-size: 1.05rem;
 }
+
+/* Star rating */
+#star-rating-container {
+  margin: 16px 0 24px;
+}
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.star-label {
+  font-size: 0.9rem;
+  margin-right: 6px;
+  opacity: 0.8;
+}
+.star {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.12s;
+  line-height: 1;
+  user-select: none;
+}
+.star.active, .star.hover {
+  color: #f5a623;
+}
+.locked .star {
+  cursor: default;
+}

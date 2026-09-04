@@ -7,7 +7,6 @@
 - Categoria: Pratos Principais
 - Cozinha: Portuguesa
 - Dificuldade: Média
-- Porções: 6–8 (forma de 30cm)
 
 ## Ingredientes
 

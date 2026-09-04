@@ -6,6 +6,7 @@
 ## Informação
 
 - Categoria: Pratos Principais
+- Cozinha: Asiática
 - Dificuldade: Média
 
 ## Ingredientes

@@ -7,7 +7,6 @@
 - Categoria: Pratos Principais
 - Cozinha: Asiática
 - Dificuldade: Fácil
-- Porções: 2
 
 ## Ingredientes
 

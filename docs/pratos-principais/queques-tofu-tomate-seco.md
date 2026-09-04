@@ -7,7 +7,6 @@
 - Categoria: Pratos Principais
 - Cozinha: Mediterrânica
 - Dificuldade: Fácil
-- Porções: 6–8 queques
 
 ## Ingredientes
 

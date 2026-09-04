@@ -5,7 +5,6 @@
 - Categoria: Pratos Principais
 - Cozinha: Ocidental
 - Dificuldade: Fácil
-- Porções: 4
 
 ## Ingredientes
 

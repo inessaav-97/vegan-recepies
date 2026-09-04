@@ -7,7 +7,6 @@
 - Categoria: Pratos Principais
 - Cozinha: Mexicana
 - Dificuldade: Fácil
-- Porções: 2
 
 ## Ingredientes
 

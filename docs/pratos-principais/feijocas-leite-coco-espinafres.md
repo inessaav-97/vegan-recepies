@@ -7,7 +7,6 @@
 - Categoria: Pratos Principais
 - Cozinha: Portuguesa
 - Dificuldade: Fácil
-- Porções: 2
 
 ## Ingredientes
 

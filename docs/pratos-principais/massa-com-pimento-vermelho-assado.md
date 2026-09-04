@@ -6,7 +6,7 @@
 ## Informação
 
 - Categoria: Pratos Principais
-- Cozinha: Mediterrânica
+- Cozinha: Italiana
 - Dificuldade: Fácil
 
 ## Ingredientes

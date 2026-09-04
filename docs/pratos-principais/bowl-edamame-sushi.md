@@ -7,7 +7,6 @@
 - Categoria: Pratos Principais
 - Cozinha: Japonesa
 - Dificuldade: Média
-- Porções: 2
 
 ## Ingredientes
 

@@ -5,7 +5,6 @@
 - Categoria: Pratos Principais
 - Cozinha: Italiana
 - Dificuldade: Fácil
-- Porções: 4
 
 ## Ingredientes
 

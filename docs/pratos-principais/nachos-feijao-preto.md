@@ -1,6 +1,6 @@
 # Nachos com Feijão Preto e Guacamole
 
-![Nachos com Feijão Preto e Guacamole](../imagens/nachos-feijao-preto.jpg)
+![Nachos com Feijão Preto e Guacamole](../imagens/nachos-feijao-preto.jpeg)
 
 ## Informação
 

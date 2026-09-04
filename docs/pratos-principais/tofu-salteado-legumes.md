@@ -1,6 +1,6 @@
-# Tofu Salteado com Legumes
+# Chop Suey Vegan
 
-![Tofu Salteado com Legumes](../imagens/tofu-salteado-legumes.jpg)
+![Chop Suey Vegan](../imagens/chop-suey-vegan.jpeg)
 
 ## Informação
 

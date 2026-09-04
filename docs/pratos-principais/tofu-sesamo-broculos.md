@@ -1,6 +1,6 @@
 # Tofu com Sésamo e Brócolos
 
-![Tofu com Sésamo e Brócolos](../imagens/tofu-sesamo-broculos.jpg)
+![Tofu com Sésamo e Brócolos](../imagens/tofu-sesamo-broculos.jpeg)
 
 ## Informação
 

@@ -1,6 +1,6 @@
 # Barcos de Curgete Pizza
 
-![Barcos de Curgete Pizza](../imagens/zuchini-pizza.jpg)
+![Barcos de Curgete Pizza](../imagens/zucchini-pizza.jpg)
 
 ## Informação
 

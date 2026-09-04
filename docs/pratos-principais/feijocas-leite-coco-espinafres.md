@@ -1,6 +1,6 @@
 # Feijocas com Leite de Coco e Espinafres
 
-![Feijocas com Leite de Coco e Espinafres](../imagens/feijocas-leite-coco-espinafres.jpg)
+![Feijocas com Leite de Coco e Espinafres](../imagens/feijocas-leite-coco-espinafres.jpeg)
 
 ## Informação
 

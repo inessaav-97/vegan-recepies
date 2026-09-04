@@ -1,6 +1,6 @@
 # Bowl de Edamame com Arroz de Sushi
 
-![Bowl de Edamame com Arroz de Sushi](../imagens/bowl-edamame-sushi.jpg)
+![Bowl de Edamame com Arroz de Sushi](../imagens/bowl-edamame-sushi.jpeg)
 
 ## Informação
 

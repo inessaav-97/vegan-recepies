@@ -1,6 +1,6 @@
 # Quiche de Batata com Tofu e Legumes
 
-![Quiche de Batata com Tofu](../imagens/quiche-batata-tofu.jpg)
+![Quiche de Batata com Tofu](../imagens/quiche-batata-tofu.jpeg)
 
 ## Informação
 

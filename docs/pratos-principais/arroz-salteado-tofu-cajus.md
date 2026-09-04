@@ -1,6 +1,6 @@
-# Arroz Salteado Oriental com Tofu e Cajus
+# Arroz Oriental
 
-![Arroz Salteado Oriental com Tofu e Cajus](../imagens/arroz-salteado-tofu-cajus.jpg)
+![Arroz Oriental](../imagens/arroz-oriental.jpeg)
 
 ## Informação
 

@@ -1,6 +1,6 @@
 # Queques de Tofu com Tomate Seco e Manjericão
 
-![Queques de Tofu com Tomate Seco](../imagens/queques-tofu-tomate-seco.jpg)
+![Queques de Tofu com Tomate Seco](../imagens/queques-tofu-tomate-seco.jpeg)
 
 ## Informação
 

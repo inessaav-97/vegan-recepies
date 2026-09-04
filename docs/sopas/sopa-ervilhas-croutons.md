@@ -1,6 +1,6 @@
 # Sopa de Ervilhas com Croutons
 
-![Sopa de Ervilhas com Croutons](../imagens/sopa-ervilhas-croutons.jpg)
+![Sopa de Ervilhas com Croutons](../imagens/sopa-ervilhas-croutons.jpeg)
 
 ## Informação
 

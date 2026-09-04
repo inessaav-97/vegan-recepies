@@ -1,3 +1,13 @@
+function toStem(word) {
+  return word.endsWith('s') ? word.slice(0, -1) : word;
+}
+
+function matchesIngredient(text, ingredient) {
+  const stem = toStem(ingredient);
+  const regex = new RegExp(stem + 's?\\b', 'i');
+  return regex.test(text);
+}
+
 async function searchIngredients() {
   const input = document.getElementById('ingredient-input').value;
   const ingredients = input.split(',').map(i => i.trim().toLowerCase()).filter(i => i);
@@ -20,7 +30,7 @@ async function searchIngredients() {
       if (!loc.match(/pratos-principais|sopas|sobremesas/)) continue;
 
       const text = (doc.title + ' ' + doc.text).toLowerCase();
-      if (ingredients.every(ing => text.includes(ing))) {
+      if (ingredients.every(ing => matchesIngredient(text, ing))) {
         seen.add(loc);
         results.push({ title: doc.title, href: '../' + loc });
       }
@@ -29,9 +39,7 @@ async function searchIngredients() {
     if (results.length === 0) {
       resultsDiv.innerHTML = `<p>Nenhuma receita encontrada com: <strong>${ingredients.join(', ')}</strong>.</p>`;
     } else {
-      resultsDiv.innerHTML = `
-        <p>Encontradas <strong>${results.length}</strong> receita(s) com <strong>${ingredients.join(', ')}</strong>:</p>
-        <ul>${results.map(r => `<li><a href="${r.href}">${r.title}</a></li>`).join('')}</ul>`;
+      resultsDiv.innerHTML = `<ul>${results.map(r => `<li><a href="${r.href}">${r.title}</a></li>`).join('')}</ul>`;
     }
   } catch (e) {
     resultsDiv.innerHTML = '<p>Erro ao carregar receitas. Tenta novamente.</p>';

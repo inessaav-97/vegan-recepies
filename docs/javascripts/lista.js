@@ -27,6 +27,106 @@ const TODAS_RECEITAS = [
 const STORAGE_KEY = 'lista_compras_items';
 const selecao = new Set();
 
+// ── Ingredient parser ───────────────────────────
+
+const FRACTIONS = { '½': 0.5, '¼': 0.25, '¾': 0.75, '⅓': 1/3, '⅔': 2/3 };
+
+const UNIT_PATTERNS = [
+  [/^colheres?\s+de\s+sopa\s+(?:de\s+)?/i,  'c.s.'],
+  [/^colheres?\s+de\s+chá\s+(?:de\s+)?/i,   'c.c.'],
+  [/^c\.?\s*s\.?\s+(?:de\s+)?/i,            'c.s.'],
+  [/^c\.?\s*c\.?\s+(?:de\s+)?/i,            'c.c.'],
+  [/^chávenas?\s+de\s+chá\s+(?:de\s+)?/i,   'chávena de chá'],
+  [/^chávenas?\s+(?:de\s+)?/i,              'chávena'],
+  [/^kg\s+(?:de\s+)?/i,                     'kg'],
+  [/^g\s+(?:de\s+)?/i,                      'g'],
+  [/^ml\s+(?:de\s+)?/i,                     'ml'],
+  [/^dl\s+(?:de\s+)?/i,                     'dl'],
+  [/^l(?:itros?)?\s+(?:de\s+)?/i,           'l'],
+  [/^latas?\s+(?:de\s+)?/i,                 'lata'],
+  [/^dentes?\s+(?:de\s+)?/i,               'dente'],
+  [/^ramos?\s+(?:de\s+)?/i,                 'ramo'],
+  [/^folhas?\s+(?:de\s+)?/i,               'folha'],
+  [/^embalagens?\s+(?:de\s+)?/i,           'embalagem'],
+  [/^pacotes?\s+(?:de\s+)?/i,              'pacote'],
+];
+
+function stripPrep(text) {
+  return text
+    .split(',')[0]                                                                            // drop everything after first comma
+    .replace(/\s+(a\s+gosto|q\.?\s*b\.?)\s*$/i, '')                                          // "a gosto", "q.b."
+    .replace(/\s+em\s+\w+(\s+\w+)?\s*$/i, '')                                                // "em rodelas", "em cubos"
+    .replace(/\s+(picad[ao]s?|cortad[ao]s?|fatiados?|laminad[ao]s?|ralad[ao]s?|partido[s]?|amassad[ao]s?|esmagad[ao]s?|descascad[ao]s?|cozid[ao]s?|escorridos?|temperados?)\s*$/i, '')
+    .trim();
+}
+
+function parseIngredient(raw) {
+  let text = stripPrep(raw);
+
+  // Parse leading fraction or number
+  let qty = null;
+  const fracMatch = text.match(/^([½¼¾⅓⅔])\s*/);
+  if (fracMatch) {
+    qty = FRACTIONS[fracMatch[1]] ?? null;
+    text = text.slice(fracMatch[0].length);
+  } else {
+    const numMatch = text.match(/^(\d+(?:[.,]\d+)?)\s*/);
+    if (numMatch) {
+      qty = parseFloat(numMatch[1].replace(',', '.'));
+      text = text.slice(numMatch[0].length);
+    }
+  }
+
+  // Parse unit
+  let unit = null;
+  for (const [pattern, unitName] of UNIT_PATTERNS) {
+    const m = text.match(pattern);
+    if (m) { unit = unitName; text = text.slice(m[0].length); break; }
+  }
+
+  const name = text.toLowerCase().trim();
+  return { qty, unit, name };
+}
+
+function fmtQty(qty) {
+  if (qty === null) return '';
+  if (Math.abs(qty - 0.5) < 0.01) return '½';
+  if (Math.abs(qty - 0.25) < 0.01) return '¼';
+  if (Math.abs(qty - 0.75) < 0.01) return '¾';
+  if (Number.isInteger(qty)) return String(qty);
+  return qty.toFixed(1);
+}
+
+function combineIngredients(allRaw) {
+  const groups = new Map(); // name → [{ qty, unit }]
+
+  allRaw.forEach(raw => {
+    const { qty, unit, name } = parseIngredient(raw);
+    if (!name) return;
+    if (!groups.has(name)) groups.set(name, []);
+    const slots = groups.get(name);
+    const existing = slots.find(s => s.unit === unit);
+    if (existing && qty !== null && existing.qty !== null) {
+      existing.qty += qty;
+    } else {
+      slots.push({ qty, unit });
+    }
+  });
+
+  const lines = [];
+  groups.forEach((slots, name) => {
+    slots.forEach(({ qty, unit }) => {
+      const qPart = qty !== null ? fmtQty(qty) + ' ' : '';
+      const uPart = unit ? unit + ' de ' : '';
+      const label = qPart + uPart + name;
+      lines.push(label.charAt(0).toUpperCase() + label.slice(1));
+    });
+  });
+  return lines.sort((a, b) => a.localeCompare(b, 'pt'));
+}
+
+// ── Recipe selector ─────────────────────────────
+
 function renderSelector() {
   const container = document.getElementById('recipe-selector');
   if (!container) return;
@@ -35,7 +135,6 @@ function renderSelector() {
   TODAS_RECEITAS.forEach(r => {
     const label = document.createElement('label');
     label.className = 'receita-selector-item';
-    label.dataset.slug = r.slug;
     label.innerHTML = `<input type="checkbox" value="${r.slug}"><span>${r.nome}</span>`;
     label.querySelector('input').addEventListener('change', e => {
       const key = r.slug + '|' + r.cat;
@@ -51,8 +150,7 @@ function renderSelector() {
 function selecionarTudo() {
   document.querySelectorAll('.receita-selector-item').forEach(label => {
     const cb = label.querySelector('input');
-    cb.checked = true;
-    cb.dispatchEvent(new Event('change'));
+    if (!cb.checked) { cb.checked = true; cb.dispatchEvent(new Event('change')); }
   });
 }
 
@@ -62,15 +160,17 @@ function limparSelecao() {
     label.querySelector('input').checked = false;
     label.classList.remove('selected');
   });
+  document.getElementById('shopping-list').innerHTML = '';
 }
+
+// ── Fetch ingredients from built HTML page ───────
 
 async function fetchIngredients(slug, cat) {
   try {
     const res = await fetch(`../${cat}/${slug}/`);
     if (!res.ok) return [];
     const html = await res.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
+    const doc = new DOMParser().parseFromString(html, 'text/html');
     for (const h of doc.querySelectorAll('h2')) {
       if (h.textContent.trim().toLowerCase() === 'ingredientes') {
         const ul = h.nextElementSibling;
@@ -83,25 +183,29 @@ async function fetchIngredients(slug, cat) {
   return [];
 }
 
+// ── Generate list ────────────────────────────────
+
 async function gerarLista() {
-  if (selecao.size === 0) {
-    alert('Seleciona pelo menos uma receita.');
-    return;
-  }
+  if (selecao.size === 0) { alert('Seleciona pelo menos uma receita.'); return; }
   const listDiv = document.getElementById('shopping-list');
   listDiv.innerHTML = '<p class="lista-loading">A carregar ingredientes…</p>';
 
   const results = await Promise.all(
-    Array.from(selecao).map(async key => {
+    Array.from(selecao).map(key => {
       const [slug, cat] = key.split('|');
-      const nome = TODAS_RECEITAS.find(r => r.slug === slug)?.nome || slug;
-      const ingredientes = await fetchIngredients(slug, cat);
-      return { nome, slug, ingredientes };
+      return fetchIngredients(slug, cat);
     })
   );
 
+  const combined = combineIngredients(results.flat());
   const checked = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+
   listDiv.innerHTML = '';
+
+  if (!combined.length) {
+    listDiv.innerHTML = '<p>Não foi possível carregar os ingredientes das receitas selecionadas.</p>';
+    return;
+  }
 
   const header = document.createElement('div');
   header.className = 'lista-result-header';
@@ -114,36 +218,22 @@ async function gerarLista() {
   `;
   listDiv.appendChild(header);
 
-  let hasContent = false;
-  results.forEach(({ nome, slug, ingredientes }) => {
-    if (!ingredientes.length) return;
-    hasContent = true;
-    const section = document.createElement('div');
-    section.className = 'lista-section';
-    const ul = document.createElement('ul');
-    ul.className = 'lista-ingredientes';
-    ingredientes.forEach(ing => {
-      const itemKey = `${slug}::${ing}`;
-      const isChecked = !!checked[itemKey];
-      const li = document.createElement('li');
-      li.className = 'lista-item' + (isChecked ? ' checked' : '');
-      li.innerHTML = `<label><input type="checkbox"${isChecked ? ' checked' : ''}><span>${ing}</span></label>`;
-      li.querySelector('input').addEventListener('change', e => {
-        const c = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-        if (e.target.checked) { c[itemKey] = true; li.classList.add('checked'); }
-        else { delete c[itemKey]; li.classList.remove('checked'); }
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(c));
-      });
-      ul.appendChild(li);
+  const ul = document.createElement('ul');
+  ul.className = 'lista-ingredientes';
+  combined.forEach(ing => {
+    const isChecked = !!checked[ing];
+    const li = document.createElement('li');
+    li.className = 'lista-item' + (isChecked ? ' checked' : '');
+    li.innerHTML = `<label><input type="checkbox"${isChecked ? ' checked' : ''}><span>${ing}</span></label>`;
+    li.querySelector('input').addEventListener('change', e => {
+      const c = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+      if (e.target.checked) { c[ing] = true; li.classList.add('checked'); }
+      else { delete c[ing]; li.classList.remove('checked'); }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(c));
     });
-    section.innerHTML = `<h3>${nome}</h3>`;
-    section.appendChild(ul);
-    listDiv.appendChild(section);
+    ul.appendChild(li);
   });
-
-  if (!hasContent) {
-    listDiv.innerHTML = '<p>Não foi possível carregar os ingredientes das receitas selecionadas.</p>';
-  }
+  listDiv.appendChild(ul);
 }
 
 function limparMarcacoes() {
@@ -156,11 +246,8 @@ function limparMarcacoes() {
 
 function copiarLista() {
   const lines = [];
-  document.querySelectorAll('.lista-section').forEach(sec => {
-    lines.push('\n' + sec.querySelector('h3').textContent);
-    sec.querySelectorAll('.lista-item span').forEach(span => lines.push('• ' + span.textContent));
-  });
-  navigator.clipboard.writeText(lines.join('\n').trim()).then(() => {
+  document.querySelectorAll('.lista-item span').forEach(span => lines.push('• ' + span.textContent));
+  navigator.clipboard.writeText(lines.join('\n')).then(() => {
     const btn = document.querySelector('[onclick="copiarLista()"]');
     btn.textContent = 'Copiado!';
     setTimeout(() => btn.textContent = 'Copiar lista', 2000);

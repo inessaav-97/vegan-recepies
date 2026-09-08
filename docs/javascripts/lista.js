@@ -166,22 +166,43 @@ function limparSelecao() {
 // ── Fetch ingredients from built HTML page ───────
 
 async function fetchIngredients(slug, cat) {
+  const url = `../${cat}/${slug}/`;
   try {
-    const res = await fetch(`../${cat}/${slug}/`);
-    if (!res.ok) return [];
+    const res = await fetch(url);
+    if (!res.ok) {
+      console.warn(`[lista] 404 or error for ${url} — status ${res.status}`);
+      return [];
+    }
     const html = await res.text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
-    for (const h of doc.querySelectorAll('h2')) {
-      if (h.textContent.trim().toLowerCase() === 'ingredientes') {
-        const ul = h.nextElementSibling;
-        if (ul && (ul.tagName === 'UL' || ul.tagName === 'OL')) {
-          return Array.from(ul.querySelectorAll('li')).map(li => li.textContent.trim()).filter(Boolean);
-        }
+
+    // Search all headings (h2 and h3), match loosely
+    const headings = doc.querySelectorAll('h2, h3');
+    for (const h of headings) {
+      if (!h.textContent.toLowerCase().includes('ingrediente')) continue;
+
+      // Walk next siblings until we hit a list
+      let sibling = h.nextElementSibling;
+      while (sibling && sibling.tagName !== 'UL' && sibling.tagName !== 'OL') {
+        sibling = sibling.nextElementSibling;
+      }
+      if (sibling) {
+        const items = Array.from(sibling.querySelectorAll('li'))
+          .map(li => li.textContent.trim())
+          .filter(Boolean);
+        console.log(`[lista] ${slug}: found ${items.length} ingredients`);
+        return items;
       }
     }
-  } catch (e) {}
-  return [];
+
+    console.warn(`[lista] ${slug}: no "Ingredientes" section found in HTML`);
+    return [];
+  } catch (e) {
+    console.error(`[lista] fetch failed for ${url}:`, e);
+    return [];
+  }
 }
+
 
 // ── Generate list ────────────────────────────────
 

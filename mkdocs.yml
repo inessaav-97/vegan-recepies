@@ -62,6 +62,7 @@ nav:
   - Sobremesas:
     - Bolo de Banana Vegano com Chocolate: sobremesas/bolo-banana-vegano.md
   - 🔍 Pesquisa por Ingredientes: pesquisar.md
+  - Lista de Compras: lista-compras.md
   - Sobre: sobre.md
 
 extra_css:
@@ -71,3 +72,5 @@ extra_javascript:
   - javascripts/ingredientes.js
   - javascripts/estrelas.js
   - javascripts/galeria.js
+  - javascripts/lista.js
+

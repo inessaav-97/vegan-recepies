@@ -1,5 +1,8 @@
 # Gnocchi com Creme de Castanha e Tomates
 
+
+![Gnocchi com Creme de Castanha e Tomates](../imagens/Gnocchi-tomates.jpeg)
+
 ## Informação
 
 - Categoria: Pratos Principais

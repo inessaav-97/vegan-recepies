@@ -170,38 +170,48 @@ async function fetchIngredients(slug, cat) {
   try {
     const res = await fetch(url);
     if (!res.ok) {
-      console.warn(`[lista] 404 or error for ${url} — status ${res.status}`);
+      console.warn(`[lista] 404 for ${url}`);
       return [];
     }
     const html = await res.text();
     const doc = new DOMParser().parseFromString(html, 'text/html');
 
-    // Search all headings (h2 and h3), match loosely
-    const headings = doc.querySelectorAll('h2, h3');
-    for (const h of headings) {
-      if (!h.textContent.toLowerCase().includes('ingrediente')) continue;
-
-      // Walk next siblings until we hit a list
-      let sibling = h.nextElementSibling;
-      while (sibling && sibling.tagName !== 'UL' && sibling.tagName !== 'OL') {
-        sibling = sibling.nextElementSibling;
-      }
-      if (sibling) {
-        const items = Array.from(sibling.querySelectorAll('li'))
-          .map(li => li.textContent.trim())
-          .filter(Boolean);
-        console.log(`[lista] ${slug}: found ${items.length} ingredients`);
-        return items;
+    // Find the Ingredientes heading (h2 or h3)
+    let ingredientesHeading = null;
+    for (const h of doc.querySelectorAll('h2, h3')) {
+      if (h.textContent.toLowerCase().includes('ingrediente')) {
+        ingredientesHeading = h;
+        break;
       }
     }
+    if (!ingredientesHeading) {
+      console.warn(`[lista] ${slug}: no Ingredientes heading found`);
+      return [];
+    }
 
-    console.warn(`[lista] ${slug}: no "Ingredientes" section found in HTML`);
-    return [];
+    // Walk all siblings after it, collecting <li> from any list,
+    // stopping only when we hit another h2 (next main section)
+    const items = [];
+    let sibling = ingredientesHeading.nextElementSibling;
+    while (sibling) {
+      if (sibling.tagName === 'H2') break; // next main section — stop
+      if (sibling.tagName === 'UL' || sibling.tagName === 'OL') {
+        sibling.querySelectorAll('li').forEach(li => {
+          const text = li.textContent.trim();
+          if (text) items.push(text);
+        });
+      }
+      sibling = sibling.nextElementSibling;
+    }
+
+    console.log(`[lista] ${slug}: ${items.length} ingredients`);
+    return items;
   } catch (e) {
     console.error(`[lista] fetch failed for ${url}:`, e);
     return [];
   }
 }
+
 
 
 // ── Generate list ────────────────────────────────

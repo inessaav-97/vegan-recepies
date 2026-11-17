@@ -18,7 +18,7 @@ The script will:
 5. Update mkdocs.yml and lista.js
 6. Build and deploy to GitHub Pages
 """
-import sys, os, re, json, urllib.request, unicodedata, subprocess
+import sys, os, re, json, urllib.request, unicodedata, subprocess, locale
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -54,6 +54,12 @@ def slugify(text):
     text = ''.join(c for c in text if unicodedata.category(c) != 'Mn')  # strip accents
     text = re.sub(r'[^a-z0-9]+', '-', text)
     return text.strip('-')
+
+
+def sort_key(text):
+    """Accent-insensitive, case-insensitive sort key for Portuguese titles."""
+    text = unicodedata.normalize('NFD', text.lower())
+    return ''.join(c for c in text if unicodedata.category(c) != 'Mn')
 
 
 def fetch_albo_recipe(url):
@@ -194,8 +200,43 @@ def download_image(img_filename):
     print(f"  Imagem guardada: {img_filename}")
 
 
+def update_galeria_js(title_pt, slug, img_filename):
+    """Add new pratos-principais recipe to galeria.js in alphabetical order."""
+    js_path = os.path.join(DOCS_DIR, 'javascripts', 'galeria.js')
+    with open(js_path, encoding='utf-8') as f:
+        text = f.read()
+
+    if slug in text:
+        print("  galeria.js: já contém esta receita.")
+        return
+
+    safe_title = title_pt.replace("'", "\\'")
+    new_entry = f"  {{ nome: '{safe_title}', img: '{img_filename}', slug: '{slug}' }},\n"
+
+    # Find all existing entries and their positions, insert alphabetically
+    pattern = re.compile(r"  \{ nome: '([^']+)',.*?\},\n", re.DOTALL)
+    matches = list(pattern.finditer(text))
+
+    insert_pos = None
+    for m in matches:
+        existing_nome = m.group(1)
+        if sort_key(title_pt) < sort_key(existing_nome):
+            insert_pos = m.start()
+            break
+
+    if insert_pos is None:
+        # Insert before closing ];
+        insert_pos = text.rindex('];')
+
+    text = text[:insert_pos] + new_entry + text[insert_pos:]
+
+    with open(js_path, 'w', encoding='utf-8') as f:
+        f.write(text)
+    print("  galeria.js actualizado.")
+
+
 def update_mkdocs(nav_title, slug, category):
-    """Add new recipe to mkdocs.yml navigation."""
+    """Add new recipe to mkdocs.yml navigation in alphabetical order."""
     yml_path = os.path.join(BASE_DIR, 'mkdocs.yml')
     with open(yml_path, encoding='utf-8') as f:
         text = f.read()
@@ -204,9 +245,30 @@ def update_mkdocs(nav_title, slug, category):
         print("  mkdocs.yml: já contém esta receita.")
         return
 
-    marker = CATEGORY_MARKERS[category]
-    line = f"    - {nav_title}: {category}/{slug}.md\n"
-    text = text.replace(marker, line + marker)
+    new_line = f"    - {nav_title}: {category}/{slug}.md\n"
+
+    # Find the category section and all its recipe entries
+    # Recipe entries in a section look like:    - Title: category/slug.md
+    entry_pattern = re.compile(
+        rf'(    - [^\n]+: {re.escape(category)}/[^\n]+\.md\n)'
+    )
+    matches = list(entry_pattern.finditer(text))
+
+    insert_pos = None
+    for m in matches:
+        # Extract title from "    - Title: path"
+        line = m.group(1)
+        existing_title = re.match(r'    - (.+?): ', line).group(1)
+        if sort_key(nav_title) < sort_key(existing_title):
+            insert_pos = m.start()
+            break
+
+    if insert_pos is None:
+        # Insert before the next category marker
+        marker = CATEGORY_MARKERS[category]
+        insert_pos = text.index(marker)
+
+    text = text[:insert_pos] + new_line + text[insert_pos:]
 
     with open(yml_path, 'w', encoding='utf-8') as f:
         f.write(text)
@@ -214,7 +276,7 @@ def update_mkdocs(nav_title, slug, category):
 
 
 def update_lista_js(title_pt, slug, category):
-    """Add new recipe entry to TODAS_RECEITAS in lista.js."""
+    """Add new recipe entry to TODAS_RECEITAS in lista.js in alphabetical order."""
     js_path = os.path.join(DOCS_DIR, 'javascripts', 'lista.js')
     with open(js_path, encoding='utf-8') as f:
         text = f.read()
@@ -223,10 +285,32 @@ def update_lista_js(title_pt, slug, category):
         print("  lista.js: já contém esta receita.")
         return
 
-    # Escape single quotes in title
     safe_title = title_pt.replace("'", "\\'")
-    entry = f"  {{ nome: '{safe_title}', slug: '{slug}', cat: '{category}' }},\n"
-    text = text.replace('];', entry + '];', 1)
+    new_entry = f"  {{ nome: '{safe_title}', slug: '{slug}', cat: '{category}' }},\n"
+
+    # Find all entries of same category and insert alphabetically within the group
+    cat_pattern = re.compile(
+        rf"  \{{ nome: '([^']+)', slug: '[^']+', cat: '{re.escape(category)}' \}},\n"
+    )
+    matches = list(cat_pattern.finditer(text))
+
+    insert_pos = None
+    for m in matches:
+        existing_nome = m.group(1)
+        if sort_key(title_pt) < sort_key(existing_nome):
+            insert_pos = m.start()
+            break
+
+    if insert_pos is None:
+        if matches:
+            # Insert after the last entry of this category
+            last = matches[-1]
+            insert_pos = last.end()
+        else:
+            # Category not found yet — insert before ];
+            insert_pos = text.rindex('];')
+
+    text = text[:insert_pos] + new_entry + text[insert_pos:]
 
     with open(js_path, 'w', encoding='utf-8') as f:
         f.write(text)
@@ -354,9 +438,13 @@ def main():
     # ── 6. Update lista.js ────────────────────────────────────────────────
     update_lista_js(title_pt, slug, category)
 
+    # ── 7. Update galeria.js (pratos principais only) ─────────────────────
+    if category == 'pratos-principais':
+        update_galeria_js(title_pt, slug, img_filename)
+
     print(f"\nReceita '{title_pt}' adicionada com sucesso!")
 
-    # ── 7. Optional deploy ────────────────────────────────────────────────
+    # ── 8. Optional deploy ────────────────────────────────────────────────
     deploy()
 
 

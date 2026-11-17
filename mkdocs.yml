@@ -34,53 +34,53 @@ nav:
   - Início: index.md
   - Pratos Principais:
     - pratos-principais/index.md
+    - Arroz de Abóbora, Cogumelos e Romã: pratos-principais/arroz-abobora-cogumelos-roma.md
     - Arroz Salteado Oriental com Tofu e Cajus: pratos-principais/arroz-salteado-tofu-cajus.md
     - Barcos de Curgete Pizza: pratos-principais/barcos-de-curgete-pizza.md
     - Batata Doce Recheada com Grão-de-Bico: pratos-principais/batata-doce-recheada.md
     - Bifes de Couve-flor Panados: pratos-principais/bifes-de-couve-flor-panados.md
+    - Biryani de Tofu Vegano: pratos-principais/biryani-tofu-vegano.md
     - Bowl de Edamame com Arroz de Sushi: pratos-principais/bowl-edamame-sushi.md
+    - Caril de Beringela e Lentilhas com Coco e Damasco: pratos-principais/caril-beringela-lentilhas.md
     - Caril Massaman: pratos-principais/caril-massaman.md
     - Chow Mein: pratos-principais/chow-mein.md
     - Esparguete com Pesto de Tofu: pratos-principais/esparguete-pesto-tofu.md
+    - Estrogonofe de Grão-de-Bico: pratos-principais/estrogonofe-grao-de-bico.md
     - Feijocas com Leite de Coco e Espinafres: pratos-principais/feijocas-leite-coco-espinafres.md
+    - Feijões Brancos Cremosos à Toscana: pratos-principais/feijoes-brancos-toscana.md
+    - Feijões com Miso, Tahine e Sementes Tostadas: pratos-principais/feijoes-miso-verde.md
+    - Filetes de Tofu à Russa: pratos-principais/filetes-tofu-russos.md
     - Gnocchi com Creme de Castanha e Tomates: pratos-principais/gnocchi-creme-castanha-tomates.md
     - Gnocchi com Tomates, Lentilhas e Tofu: pratos-principais/gnocchi-tomates-lentilhas.md
+    - Gnocchi Cremoso com Abóbora: pratos-principais/gnocchi-cremoso-abobora.md
     - Lentilhas Cremosas com Espinafre: pratos-principais/lentilhas-cremosas-espinafre.md
+    - Massa al Ragù Vegano: pratos-principais/massa-ragu-vegano.md
     - Massa com Pimento Vermelho Assado: pratos-principais/massa-com-pimento-vermelho-assado.md
     - Massa Cremosa com Cogumelos e Miso: pratos-principais/massa-cogumelos-miso.md
+    - Massa Cremosa de Pimento Vermelho Assado: pratos-principais/massa-pimento-cremosa.md
+    - Massa de Alta Proteína: pratos-principais/massa-alta-proteina.md
     - Nachos com Feijão Preto e Guacamole: pratos-principais/nachos-feijao-preto.md
+    - Noodles de Curry com Leite de Coco: pratos-principais/noodles-curry-coco.md
     - Orzo com Tomates Secos e Tofu: pratos-principais/orzo-tomates-secos-tofu.md
     - Queques de Tofu com Tomate Seco: pratos-principais/queques-tofu-tomate-seco.md
     - Quiche de Batata com Tofu e Legumes: pratos-principais/quiche-batata-tofu.md
     - Ramen de Legumes: pratos-principais/ramen-de-legumes.md
     - Salada de Falafel no Forno: pratos-principais/salada-de-falafel-no-forno.md
+    - Salada Nutritiva com Molho de Tahine: pratos-principais/salada-molho-tahine.md
     - Shawarma de Cogumelos: pratos-principais/shawarma-de-cogumelos.md
+    - Tofu com Beringela Assada: pratos-principais/tofu-beringela-assada.md
+    - Tofu com Molho de Laranja: pratos-principais/tofu-laranja.md
     - Tofu com Sésamo e Brócolos: pratos-principais/tofu-sesamo-broculos.md
     - Tofu Salteado com Legumes: pratos-principais/tofu-salteado-legumes.md
     - Udon Cremoso com Tofu: pratos-principais/udon-cremoso-tofu.md
-    - Noodles de Curry com Leite de Coco: pratos-principais/noodles-curry-coco.md
-    - Feijões com Miso, Tahine e Sementes Tostadas: pratos-principais/feijoes-miso-verde.md
-    - Arroz de Abóbora, Cogumelos e Romã: pratos-principais/arroz-abobora-cogumelos-roma.md
-    - Gnocchi Cremoso com Abóbora: pratos-principais/gnocchi-cremoso-abobora.md
-    - Feijões Brancos Cremosos à Toscana: pratos-principais/feijoes-brancos-toscana.md
-    - Estrogonofe de Grão-de-Bico: pratos-principais/estrogonofe-grao-de-bico.md
-    - Caril de Beringela e Lentilhas com Coco: pratos-principais/caril-beringela-lentilhas.md
-    - Tofu com Molho de Laranja: pratos-principais/tofu-laranja.md
-    - Massa de Alta Proteína: pratos-principais/massa-alta-proteina.md
-    - Filetes de Tofu à Russa: pratos-principais/filetes-tofu-russos.md
-    - Salada Nutritiva com Molho de Tahine: pratos-principais/salada-molho-tahine.md
-    - Tofu com Beringela Assada: pratos-principais/tofu-beringela-assada.md
-    - Massa Cremosa de Pimento Vermelho Assado: pratos-principais/massa-pimento-cremosa.md
-    - Biryani de Tofu Vegano: pratos-principais/biryani-tofu-vegano.md
     - Wellington Vegano: pratos-principais/wellington-vegano.md
-    - Massa al Ragù Vegano: pratos-principais/massa-ragu-vegano.md
   - Sopas:
-    - Sopa de Ervilhas com Croutons: sopas/sopa-ervilhas-croutons.md
     - Guisado de Grão-de-Bico com Limão Caramelizado: sopas/guisado-grao-limao.md
+    - Sopa de Ervilhas com Croutons: sopas/sopa-ervilhas-croutons.md
   - Sobremesas:
-    - Bolo de Banana Vegano com Chocolate: sobremesas/bolo-banana-vegano.md
-    - Bolachas de Abóbora Saudáveis: sobremesas/bolachas-abobora-saudaveis.md
     - Barras de Crumble com Amoras: sobremesas/barras-amoras-crumble.md
+    - Bolachas de Abóbora Saudáveis: sobremesas/bolachas-abobora-saudaveis.md
+    - Bolo de Banana Vegano com Chocolate: sobremesas/bolo-banana-vegano.md
     - Crumble de Banana com Doce de Leite Vegano: sobremesas/crumble-banana-doce-leite.md
   - 🔍 Pesquisa por Ingredientes: pesquisar.md
   - Lista de Compras: lista-compras.md
